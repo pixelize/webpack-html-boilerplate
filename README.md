@@ -11,7 +11,7 @@ Tools included :
  - [MJML](https://mjml.io/)
  - [Autoprefixer](https://github.com/autoprefixer)
 
-Please, if you find any frameworks, plugins or tools which could be the worth adding to the boilerplate, let me know and create & issue ;)
+Please, if you find any frameworks, plugins or tools which could be the worth added to the boilerplate, let me know and [create an issue](https://github.com/pixelize/webpack-html-boilerplate/issues)
 
 
 How to get started with the web app?
