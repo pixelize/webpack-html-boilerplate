@@ -1,7 +1,7 @@
 {
   "name": "webpack-html-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple webpack html boilerplate including some tools for your front-end development",
   "scripts": {
     "start": "babel-node scripts/server.js",
     "build": "babel-node ./node_modules/.bin/webpack",
@@ -9,6 +9,17 @@
     "test": "npm run lint && npm run build",
     "email:watch": "concurrently 'mjml -w email/email.mjml -o email/email.html' 'live-server email'"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixelize/webpack-html-boilerplate"
+  },
+  "keywords": [
+    "webpack",
+    "boilerplate",
+    "mjml"
+  ],
+  "author": "Gauthier Eloy",
+  "license": "MIT",
   "dependencies": {
     "normalize.css": "^4.0.0"
   },
