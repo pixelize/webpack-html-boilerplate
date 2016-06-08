@@ -1,0 +1,21 @@
+// =============================================================================
+// General & common styles
+// =============================================================================
+
+/* Page settings
+   ========================================================================== */
+body {
+  @include font-size($font-size-base);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background: $color-light-lter;
+  color: $color-dark;
+  font-family: $font-book;
+  line-height: 1;
+}
+
+* { box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}

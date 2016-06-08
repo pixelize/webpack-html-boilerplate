@@ -1,0 +1,61 @@
+// =============================================================================
+// Typography
+// =============================================================================
+
+
+/* Custom fonts
+   ========================================================================== */
+@include font-face('Avenir Book',  '../fonts/avenir/Avenir-Book');
+@include font-face('Avenir Light', '../fonts/avenir/Avenir-Light');
+@include font-face('Avenir Heavy', '../fonts/avenir/Avenir-Heavy');
+@include font-face('Avenir Black', '../fonts/avenir/Avenir-Black');
+
+@include font-face('Source Code Pro', '../fonts/sourcecodepro/SourceCodePro-Regular');
+
+
+/* Titles
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  margin: 0;
+}
+
+h1 {
+  @include font-size(24px);
+  font-family: $font-light;
+}
+
+h2 {
+  @include font-size(16px);
+  font-family: $font-black;
+}
+
+h3 {
+  @include font-size(12px);
+  font-family: $font-black;
+  letter-spacing: 3px;
+}
+
+h4 {
+  @include font-size(16px);
+  font-family: $font-book;
+}
+
+
+/* Labels
+   ========================================================================== */
+.label {
+  @include font-size(11px);
+  color: $color-dark;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  font-family: $font-black;
+
+  &.label-light {
+    color: #B3B6BC;
+  }
+}

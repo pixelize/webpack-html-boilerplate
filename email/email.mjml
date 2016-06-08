@@ -1,0 +1,133 @@
+
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <!-- Default styles -->
+      <mj-text padding="0"
+               font-family="Helvetica"
+               font-weight="300"
+               color="#4d4d4d" />
+
+      <!-- Custom classes -->
+      <mj-class align="center"
+                font-size="20px"
+                font-weight="400"
+                name="title" />
+      <mj-class background-color="#4381f4"
+                border-radius="0px"
+                border="1px solid #2b6ee9"
+                color="#fff"
+                font-family="Helvetica"
+                font-size="16px"
+                font-weight="300"
+                name="btn--primary" />
+      <mj-class background-color="transparent"
+                border-radius="0px"
+                border="1px solid #fff"
+                color="#fff"
+                font-family="Helvetica"
+                font-size="16px"
+                font-weight="300"
+                name="btn-secondary" />
+   </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-container background-color="#fff">
+      <mj-section background-color="#eb5d56"
+                  full-width="full-width"
+                  padding="40px 15px 0 15px">
+        <mj-column>
+          <mj-image href="https://mjml.io/"
+                    padding="0"
+                    src="img/mjml.png"
+                    width="93px" />
+          <mj-text align="center"
+                   color="#fff"
+                   font-size="37"
+                   line-height="45"
+                   padding="45px 0">
+            The only framework that makes responsive-email
+            <span style="text-decoration: underline;">
+              easy
+            </span>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section background-color="#eb5d56"
+                  full-width="full-width"
+                  padding="0 15px 40px 0">
+        <mj-column width="50%">
+          <mj-button mj-class="btn--primary"
+                     padding="10px 42px"
+                     href="https://mjml.io/download">
+            Download
+          </mj-button>
+        </mj-column>
+        <mj-column width="50%">
+          <mj-button href="https://mjml.io/getting-started-onboard"
+                     mj-class="btn-secondary">
+            Getting started
+          </mj-button>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column width="33.333%">
+          <mj-image src="img/icons/easy-and-quick.jpg" />
+          <mj-text mj-class="title">
+            Easy and quick
+          </mj-text>
+          <mj-text align="center" padding="20px 10px 0 0">
+            Write less code, save time and code more efficiently with MJML's
+            semantic syntax.
+          </mj-text>
+        </mj-column>
+        <mj-column width="33.333%">
+          <mj-image src="img/icons/responsive.jpg" />
+          <mj-text mj-class="title">
+            Responsive
+          </mj-text>
+          <mj-text align="center" padding="20px 0">
+             MJML is responsive by design on most-popular email clients,
+             even Outlook.
+          </mj-text>
+        </mj-column>
+        <mj-column width="33.333%">
+          <mj-image src="img/icons/component.jpg" />
+          <mj-text mj-class="title">
+            Component based
+          </mj-text>
+          <mj-text align="center"
+                   padding="20px 0 0 10px">
+             Write high-level code thanks to reusable and extensible components.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#F9F9F9"
+                  background-url="img/lines.png"
+                  full-width="full-width">
+        <mj-column>
+          <mj-text mj-class="title">
+            MJML redefines the way you code responsive email
+          </mj-text>
+          <mj-text align="center"
+                   padding-top="15px">
+            MJML is a markup language designed to reduce the pain of coding a
+            responsive email. Its semantic syntax makes it easy and
+            straightforward and its rich standard components library speeds up
+            your development time and lightens your email codebase. MJML's
+            open-source
+            engine generates high quality responsive HTML compliant with best
+            practices.
+          </mj-text>
+          <mj-button href="https://mjml.io/try-it-live"
+                     mj-class="btn--primary"
+                     padding-top="20px">
+            Try it live
+          </mj-button>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>

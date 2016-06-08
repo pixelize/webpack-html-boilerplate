@@ -1,0 +1,10 @@
+{
+  "files": [
+    "files/*.svg"
+  ],
+  "fontName": "Awesomecons",
+  "classPrefix": "icon-",
+  "baseClass": "icon",
+  "fixedWidth": true,
+  "cssTemplate": "./template.css"
+}

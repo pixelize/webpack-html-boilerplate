@@ -1,0 +1,426 @@
+// ==========================================================================
+// Mixins library by Gauthier Eloy (last update: 19-02-2015)
+// ==========================================================================
+
+/* Mixins
+   ========================================================================== */
+@mixin abs-pos-center($width, $height) {
+  position: absolute;
+  left: 50%;
+  margin-left: $width / 2 * -1;
+  top: 50%;
+  margin-top: $height / 2 * -1;
+}
+
+@mixin abs-pos-center-img($image, $width, $height) {
+  background: url($image);
+  height: $height;
+  width: $width;
+  position: absolute;
+  left: 50%;
+  margin-left: $width / 2 * -1;
+  top: 50%;
+  margin-top: $height / 2 * -1;
+}
+
+@mixin abs-pos-img($image, $width, $height, $top: null, $right: null, $bottom: null, $left:null) {
+  background: image-url($image);
+  height: $height;
+  width: $width;
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin appearance($appearance) {
+  -webkit-appearance: $appearance;
+  -moz-appearance:    $appearance;
+  appearance:         $appearance;
+}
+
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+  -moz-animation:    $animations;
+  -o-animation:      $animations;
+  animation:         $animations;
+}
+
+@mixin background-image-retina($file, $type, $width, $height) {
+  background-image: url($file + '.' + $type);
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx){
+    & {
+      background-image: url($file + '@2x.' + $type);
+      background-size: $width $height;
+    }
+  }
+}
+
+// Using before/after LT IE8 polifyll : pseudo.js
+// http://jquery.lukelutman.com/plugins/pseudo/
+@mixin before($before-content:'') {
+  &:before {
+    before: $before-content;
+    content: $before-content;
+  }
+
+  &:before, > .before {
+    @content;
+  }
+}
+
+@mixin after($after-content:'') {
+  &:after {
+    after: $after-content;
+    content: $after-content;
+  }
+
+  &:after, > .after {
+    @content;
+  }
+}
+
+@mixin centered($position) {
+  position: absolute;
+
+  @if $position == 'vertical'   {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @if $position == 'horizontal' {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @if $position == 'both'{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin cross($size: 100px, $color: #000, $thickness: 20%) {
+  transform: rotate(45deg);
+
+  display: block;
+  height: $size;
+  position: relative;
+  width: $size;
+
+  &::after,
+  &::before {
+    background: $color;
+    content: '';
+    position: absolute;
+    z-index: -1;
+  }
+
+  &::before {
+    height: 100%;
+    left: 50%;
+    margin-left: ($thickness * -10%)/20%;
+    width: $thickness;
+  }
+
+  &::after {
+    height: $thickness;
+    margin-top: ($thickness * -10%)/20%;
+    top: 50%;
+    width: 100%;
+    left: 0;
+  }
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      @content;
+  }
+  @-moz-keyframes #{$animationName} {
+      @content;
+  }
+  @keyframes #{$animationName} {
+      @content;
+  }
+}
+
+@mixin font-face($family, $path: $family, $weight: normal, $style: normal){
+  @font-face {
+    font-family: $family;
+    src: url('#{$path}.eot');
+    src: url('#{$path}.eot?#iefix')        format('embedded-opentype'),
+         url('#{$path}.woff')              format('woff'),
+         url('#{$path}.ttf')               format('truetype'),
+         url('#{$path}.svg##{$path}')      format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin opacity-cb($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin position($position, $args) {
+  $pos: top right bottom left;
+  position: $position;
+
+  @each $o in $pos {
+    $i: index($args, $o);
+
+    @if $i
+    and $i + 1 <= length($args)
+    and type-of( nth($args, $i + 1) ) == number {
+        #{$o}: nth($args, $i + 1);
+    }
+  }
+}
+
+/**
+ * the sticky footer mixin
+ **/
+@mixin sticky-footer($footer-height, $wrapper-selector: unquote("#wrapper"), $container-selector: unquote("#container"), $footer-selector: unquote("#footer")) {
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #{$wrapper-selector} {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+
+    #{$container-selector} {
+      padding: 0 0 $footer-height 0;
+    }
+  }
+
+  #{$footer-selector} {
+    height: $footer-height;
+  }
+}
+
+@mixin absolute($args) {
+  @include position(absolute, $args);
+}
+
+@mixin relative($args) {
+  @include position(relative, $args);
+}
+
+@mixin fixed($args) {
+  @include position(fixed, $args);
+}
+
+$breakpoints: (
+  phone:  320px,
+  tablet: 768px,
+  desktop:  1024px
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Breakpoint #{$breakpoint} does not exist in map declaration."
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size) {
+  @include size($size);
+}
+
+@mixin triangle($triangle-type, $triangle-direction, $triangle-color, $triangle-width, $triangle-height:"") {
+  border-style: solid;
+  height: 0px;
+  width: 0px;
+
+  @if $triangle-height == "" {
+   $triangle-height: $triangle-width;
+  }
+
+  @if $triangle-type == eq {
+    @if $triangle-direction == 'bottom' {
+      border-width: (sqrt(3) / 2 * ($triangle-width)) ($triangle-width / 2) 0 ($triangle-width / 2);
+      border-color: $triangle-color transparent transparent transparent;
+    }@else if $triangle-direction == 'top' {
+      border-width: 0 ($triangle-width / 2) (sqrt(3) / 2 * ($triangle-width)) ($triangle-width / 2);
+      border-color: transparent transparent $triangle-color transparent;
+    }@else if $triangle-direction == 'right' {
+      border-width: ($triangle-height / 2) 0 ($triangle-height / 2) (sqrt(3) / 2 * ($triangle-height));
+      border-color: transparent transparent transparent $triangle-color;
+    }@else if $triangle-direction == 'left' {
+      border-width: ($triangle-height / 2)  (sqrt(3) / 2 * ($triangle-height)) ($triangle-height / 2) 0;
+      border-color: transparent $triangle-color transparent transparent;
+    }
+  }//end equilateral
+
+  @if $triangle-type == iso {
+    @if $triangle-direction == 'bottom' {
+      border-color: $triangle-color transparent transparent transparent;
+      border-width: $triangle-height ($triangle-width / 2) 0 ($triangle-width / 2);
+    }@else if $triangle-direction == 'top' {
+      border-color: transparent transparent $triangle-color transparent;
+      border-width: 0 ($triangle-width / 2) $triangle-height  ($triangle-width / 2);
+    }@else if $triangle-direction == 'right' {
+      border-color: transparent transparent transparent $triangle-color;
+      border-width: ($triangle-height / 2) 0 ($triangle-height / 2)  $triangle-width;
+    }@else if $triangle-direction == 'left' {
+      border-color: transparent $triangle-color transparent transparent;
+      border-width: ($triangle-height / 2) $triangle-width ($triangle-height / 2) 0;
+    }
+  }//end isocele
+}//end mixin triangle
+
+
+@mixin transform-cb($val) {
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  transform: $val;
+}
+
+@mixin transform-origin-cb($val) {
+  -webkit-transform-origin: $val;
+  -moz-transform-origin: $val;
+  -ms-transform-origin: $val;
+  transform-origin: $val;
+}
+
+@mixin truncate($width) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: $width;
+  white-space: nowrap;
+}
+
+@function calculate-rem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}//default size 16
+
+@mixin font-size($size: 14px) {
+  font-size: $size;
+  font-size: calculate-rem($size);
+}
+
+@mixin placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+@mixin scrollbar($size, $primary, $secondary: lighten($primary, 25%)) {
+  ::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $primary;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $secondary;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $primary;
+    scrollbar-track-color: $secondary;
+  }
+}
+
+
+/* Placeholder (Silent classes)
+   ========================================================================== */
+
+%center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+%clearfix:after {
+  content: '';
+  display:table;
+  clear: both;
+}
+
+// A cross browser clearfix (LT IE8 support)
+%clearfix-cb {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+%inline-block {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+} // support LT IE8
+
+%text-replacement {
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+%reset {
+  margin: 0;
+  padding: 0;
+}
+
+%reset-appearance {
+  @include appearance(none);
+}
+
+%vertical-align {
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+}
