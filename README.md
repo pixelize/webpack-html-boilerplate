@@ -25,6 +25,13 @@ npm install
 npm start
 ```
 *server's served on http://localhost:3000*
+####Icon system
+The boilerplate is coming with a svg icon system management. Simply add you .svg files into app/images/icons/files.
+In your html files use : 
+```sh
+<i class="icon icon-filename"></i>
+```
+
 
 How to get started with the mail app?
 -------
