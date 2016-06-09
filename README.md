@@ -11,7 +11,7 @@ Tools included :
  - [MJML](https://mjml.io/)
  - [Autoprefixer](https://github.com/autoprefixer)
 
-Please, if you find any frameworks, plugins or tools which could be the worth added to the boilerplate, let me know and [create an issue](https://github.com/pixelize/webpack-html-boilerplate/issues)
+> Please, if you find any frameworks, plugins or tools which could be the worth added to the boilerplate, let me know & [create an issue](https://github.com/pixelize/webpack-html-boilerplate/issues)
 
 
 How to get started with the web app?
@@ -24,7 +24,7 @@ npm install
 ```sh
 npm start
 ```
-> server's served on http://localhost:3000
+> server starts on http://localhost:3000
 
 ####Icon system
 The boilerplate is coming with a svg icon system management. Simply add you .svg files into app/images/icons/files.
@@ -44,4 +44,4 @@ npm install
 ```sh
 npm run:email watch
 ```
-> server's automatically watching for changes and is served on http://localhost:8080*
+> server's automatically watching for changes & starts on http://localhost:8080*
