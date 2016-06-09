@@ -1,7 +1,7 @@
 
 Webpack HTML boilerplate
 -------
-A simple webpack html boilerplate including some tools for your front-end development. The goal of this boilerplate is to get a ready to go template for starting any web project.
+A simple webpack html boilerplate including some tools for your front-end development. The goal of this boilerplate is to get a ready to go template for starting any web project. The mail app includes a basic template coded with [MJML](https://github.com/mjmlio/mjml), a powerful framework designed for developing responsive email with ease.
 
 Tools included :
 
@@ -24,7 +24,8 @@ npm install
 ```sh
 npm start
 ```
-*server's served on http://localhost:3000*
+> server's served on http://localhost:3000
+
 ####Icon system
 The boilerplate is coming with a svg icon system management. Simply add you .svg files into app/images/icons/files.
 In your html files use : 
@@ -43,6 +44,4 @@ npm install
 ```sh
 npm run:email watch
 ```
-*server's automatically watching for changes and is served on http://localhost:8080*
-
-Coming with a basic template using [mjml](https://github.com/mjmlio/mjml), a powerful framework designed for developing responsive email with ease.
+> server's automatically watching for changes and is served on http://localhost:8080*
