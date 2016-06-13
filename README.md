@@ -10,6 +10,7 @@ Tools included :
  - [jQuery](https://jquery.com/)
  - [MJML](https://mjml.io/)
  - [Autoprefixer](https://github.com/autoprefixer)
+ - [Snazzy](https://github.com/feross/snazzy)
 
 > Please, if you find any frameworks, plugins or tools which could be the worth added to the boilerplate, let me know & [create an issue](https://github.com/pixelize/webpack-html-boilerplate/issues)
 
@@ -31,6 +32,12 @@ The boilerplate is coming with a svg icon system management. Simply add you .svg
 In your html files use : 
 ```sh
 <i class="icon icon-filename"></i>
+```
+
+###Lint JS
+You can lint your .js files using [snazzy](https://github.com/feross/snazzy)
+```sh
+npm run lint
 ```
 
 
