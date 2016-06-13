@@ -42,6 +42,6 @@ npm install
 ```
 ####Start server
 ```sh
-npm run:email watch
+npm run email:watch
 ```
 > server's automatically watching for changes & starts on http://localhost:8080*
